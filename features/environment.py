@@ -6,16 +6,11 @@ from resources.commons.driver import Driver
 
 
 def before_all(context):
-    # Driver.get_driver()
-    print('iniciando driver')
-
     if debug:
         print('before all')
 
 
 def after_all(context):
-    # Driver.quit()
-    print('finalizando driver')
     if debug:
         print('after all')
 
@@ -49,11 +44,15 @@ def after_tag(context, tag):
 
 
 def before_scenario(context, scenario):
+    print('iniciando driver')
+    Driver.get_driver()
     if debug:
         print(f'before scenario: {scenario}')
 
 
 def after_scenario(context, scenario):
+    print('finalizando driver')
+    Driver.quit()
     if debug:
         print(f'after scenario: {scenario}')
 
